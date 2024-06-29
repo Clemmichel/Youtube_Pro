@@ -1,0 +1,44 @@
+name: youtube_project
+description: "A new Flutter project."
+
+publish_to: 'none' 
+
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.3.4 <4.0.0'
+
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+
+
+  
+  http: ^1.2.1
+  youtube: ^2.0.0
+  youtube_player_flutter: ^9.0.1
+  cupertino_icons: ^1.0.6
+  
+
+dev_dependencies:
+
+
+
+ 
+  flutter_lints: ^3.0.0
+
+
+flutter:
+
+
+  uses-material-design: true
+
+
+  assets: 
+  - images/youtube.png
+
+
+  
