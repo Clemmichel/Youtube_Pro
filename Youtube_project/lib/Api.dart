@@ -9,7 +9,7 @@ const ID_CANAL = "UCVHFbqXqoYvEWM1Ddxl0QDg";
 class Api {
 
   Future<List<Video>> pesquisar(String pesquisa) async {
-    var url = 'https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&maxResults=20&order=date&key=$CHAVE_YOUTUBE_API&channelId=$ID_CANAL&q=$pesquisa';
+    var url = 'https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&maxResults=20&order=date&key=$CHAVE_YOUTUBE_API&channeltitle=$ID_CANAL&q=$pesquisa';
 
     http.Response response = await http.get(Uri.parse(url));
 

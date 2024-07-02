@@ -27,11 +27,12 @@ class CustomSearchDelegate extends SearchDelegate<String> {
 
   @override
   Widget buildResults(BuildContext context) {
-    
+    Future.delayed(Duration.zero,(){
     close(context, query);
-    return Container(); 
-  }
-
+  });
+ 
+  return Center(child: CircularProgressIndicator(),);
+}
   @override
   Widget buildSuggestions(BuildContext context) {
     
@@ -39,3 +40,4 @@ class CustomSearchDelegate extends SearchDelegate<String> {
     
   }
 }
+

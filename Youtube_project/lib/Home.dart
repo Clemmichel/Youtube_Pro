@@ -1,10 +1,8 @@
-
 import 'package:flutter/material.dart';
 import 'package:youtube_project/CustomSearchDelegate.dart';
 import 'package:youtube_project/biblioteca.dart';
 import 'package:youtube_project/em_altas.dart';
 import 'package:youtube_project/inicio.dart';
-
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -14,23 +12,16 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-
   int _indiceAtual = 0;
   String resultado = " ";
 
   @override
   Widget build(BuildContext context) {
-
-
-    
-    List<Widget> telas= [  
+    List<Widget> telas = [
       Inicio(resultado),
-      em_alta (),
+      em_alta(),
       Biblioteca(),
-      
-     
-      
-    ]; 
+    ];
 
     return Scaffold(
       appBar: AppBar(
@@ -38,14 +29,11 @@ class _HomeState extends State<Home> {
           color: Colors.grey,
         ),
         backgroundColor: Colors.white,
-        title: Image.asset("images/youtube.png", 
-          width: 120,        
+        title: Image.asset("images/youtube.png",
+          width: 120,
           height: 200,
         ),
-
         actions: [
-
-          
           IconButton(
             onPressed: () async {
               String? res = await showSearch(
@@ -53,50 +41,44 @@ class _HomeState extends State<Home> {
                 delegate: CustomSearchDelegate(),
               );
 
-            if(res!= null){
-
-
-              setState(() {
-              
-              resultado = res!;
-              });};
+              if (res != null && res.isNotEmpty) {
+                setState(() {
+                  resultado = res;
+                });
+              }
             },
             icon: Icon(Icons.search),
           ),
         ],
-
-      ) ,
+      ),
       body: telas[_indiceAtual],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _indiceAtual,
-        onTap: (indice){
+        onTap: (indice) {
           setState(() {
             _indiceAtual = indice;
+            if (indice == 0) {
+              resultado = "";
+            }
           });
         },
-         type: BottomNavigationBarType.fixed,
-        fixedColor: Colors.red,        
+        type: BottomNavigationBarType.fixed,
+        fixedColor: Colors.red,
         items: [
-        BottomNavigationBarItem(
-          label: 'Inicio',
-          icon: Icon(Icons.home),
-        ),
-        BottomNavigationBarItem(
-           label: ' Em alta',
-
-          icon: Icon(Icons.whatshot),
-        ),
-        
-        BottomNavigationBarItem(
-          label: 'Biblioteca',
-          icon: Icon(Icons.folder),
-        )
-        
-      ],
-      
+          BottomNavigationBarItem(
+            label: 'Início',
+            icon: Icon(Icons.home),
+          ),
+          BottomNavigationBarItem(
+            label: 'Em alta',
+            icon: Icon(Icons.whatshot),
+          ),
+          BottomNavigationBarItem(
+            label: 'Biblioteca',
+            icon: Icon(Icons.folder),
+          ),
+        ],
       ),
-
     );
   }
 }
-
