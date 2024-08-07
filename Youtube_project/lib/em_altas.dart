@@ -12,15 +12,11 @@ class _em_altaState extends State<em_alta> {
   Widget build(BuildContext context) {
     return Container(
       child: Center(
-        child: Text("Em alta",
-        style: TextStyle (
-          fontSize: 25
-
-        ) ,
+        child: Text(
+          "Em alta",
+          style: TextStyle(fontSize: 25),
         ),
-      
       ),
     );
   }
 }
-

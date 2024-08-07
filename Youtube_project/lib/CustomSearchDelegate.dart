@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class CustomSearchDelegate extends SearchDelegate<String> {
   @override
   List<Widget>? buildActions(BuildContext context) {
-    // Actions for search bar (e.g., clear text)
+  
     return [
       IconButton(
         onPressed: () {
@@ -16,7 +16,7 @@ class CustomSearchDelegate extends SearchDelegate<String> {
 
   @override
   Widget? buildLeading(BuildContext context) {
-    // Leading icon on the left of the search bar (e.g., back arrow)
+    
     return IconButton(
       onPressed: () {
         close(context, "");
